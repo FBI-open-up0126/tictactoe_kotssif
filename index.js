@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "client/dist")));
 
 app.post("/api/analysis", (req, res) => {
     fs.writeFileSync("./kotssif/input.json", JSON.stringify(req.body));
@@ -22,7 +22,7 @@ app.post("/api/analysis", (req, res) => {
 });
 
 app.all("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client/build/index.html"));
+    res.sendFile(path.join(__dirname, "client/dist/index.html"));
 });
 
 app.listen(8080, () => {
