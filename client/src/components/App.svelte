@@ -60,8 +60,7 @@
     <div class="info">
         {#if !gameEnded}
             <h3>{turn}'s turn</h3>
-        {/if}
-        {#if gameEnded}
+        {:else}
             <h2>{winText}</h2>
             <button on:click={restart}>Restart</button>
         {/if}
