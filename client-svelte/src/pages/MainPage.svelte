@@ -1,7 +1,8 @@
 <script>
     import { PROXY } from "../main";
-    import Board from "./Board.svelte";
-    import EvalBar from "./EvalBar.svelte";
+    import Board from "../components/Board.svelte";
+    import EvalBar from "../components/EvalBar.svelte";
+    import { Navigate } from "svelte-router-spa";
 
     let board = default_board();
     let turn = "X";
@@ -51,7 +52,9 @@
     }
 </script>
 
-<div class="app">
+<div class="main-page">
+    <Navigate to="board-editor"><button class="board-editor">Board Editor</button></Navigate>
+
     <div class="game">
         <EvalBar {analysis} />
         <Board bind:board bind:turn {gameEnded} />
@@ -68,7 +71,7 @@
 </div>
 
 <style>
-    .app {
+    .main-page {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -90,5 +93,10 @@
         margin: 0 auto;
         width: 100%;
         height: 30px;
+    }
+
+    button.board-editor {
+        width: 300px;
+        margin-bottom: 20px;
     }
 </style>

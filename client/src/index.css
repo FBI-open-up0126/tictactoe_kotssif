@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-comic-sans {
+    font-family: "Comic Sans MS", "Times New Roman", sans-serif;
+}
